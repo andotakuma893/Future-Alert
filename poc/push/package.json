@@ -1,0 +1,18 @@
+{
+  "name": "future-alert-poc-push",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Future Alert Phase 0: iPhone PWA Web Push PoC (not production code)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "vapid": "web-push generate-vapid-keys"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "web-push": "^3.6.7"
+  }
+}

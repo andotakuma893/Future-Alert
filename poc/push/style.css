@@ -1,0 +1,56 @@
+/* Minimal PoC styling. Not the Phase 1 UI. */
+:root { color-scheme: light dark; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+@media (prefers-color-scheme: dark) {
+  body { background: #0f172a; color: #e2e8f0; }
+  textarea, input, pre { background: #1e293b; color: #e2e8f0; }
+}
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: calc(16px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom));
+}
+h1 { font-size: 1.3rem; }
+h2 { font-size: 1rem; margin-top: 1.5rem; }
+.note, .hint { font-size: 0.85rem; opacity: 0.8; }
+.hint { color: #b45309; opacity: 1; }
+button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+}
+button.secondary { background: #64748b; }
+label { display: block; margin: 10px 0; font-size: 0.9rem; }
+input, textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 8px;
+  font-size: 16px; /* avoid iOS zoom on focus */
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+}
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; font-size: 0.85rem; }
+dt { font-weight: 600; }
+dd { margin: 0; word-break: break-all; }
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 0.8rem;
+  background: #e2e8f0;
+  padding: 8px;
+  border-radius: 8px;
+  min-height: 2em;
+}

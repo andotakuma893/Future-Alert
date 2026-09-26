@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Future Alert Push PoC 管理</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Push PoC 管理画面</h1>
+    <p class="note">ADMIN_TOKEN はこのページのメモリ上だけで使い、保存しません。</p>
+
+    <section>
+      <h2>購読件数</h2>
+      <button id="btn-status" type="button">/status を確認</button>
+      <pre id="status-out"></pre>
+    </section>
+
+    <section>
+      <h2>送信</h2>
+      <label>ADMIN_TOKEN
+        <input id="token" type="password" autocomplete="off">
+      </label>
+      <label>タイトル
+        <input id="title" type="text" value="Future Alert テスト通知">
+      </label>
+      <label>本文（空欄ならサーバー時刻）
+        <input id="body" type="text">
+      </label>
+      <label>タップ時に開くURL（同一オリジンのパス）
+        <input id="url" type="text" value="/?from=push">
+      </label>
+      <label>購読情報JSON（任意。空欄なら保存済みの全購読へ送信）
+        <textarea id="subscription" rows="4" placeholder='{"endpoint":"https://...","keys":{...}}'></textarea>
+      </label>
+
+      <button id="btn-send" type="button">テスト通知を今すぐ送信（/send-test）</button>
+
+      <label>遅延秒数（60〜600秒。短時間テスト専用）
+        <input id="delay" type="number" min="60" max="600" step="1" value="300">
+      </label>
+      <button id="btn-delayed" type="button">遅延通知を予約（/send-delayed）</button>
+      <p class="note">
+        数時間後の通知はこの予約では検証しません。数時間待ってから「今すぐ送信」を手動で押してください。
+      </p>
+      <pre id="send-out"></pre>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>

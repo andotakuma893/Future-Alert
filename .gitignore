@@ -1,0 +1,12 @@
+# secrets / runtime data (must never be committed)
+.env
+.env.*
+!.env.example
+subscriptions.json
+
+# node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
